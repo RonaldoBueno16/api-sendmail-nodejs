@@ -6,5 +6,5 @@ const port = process.env.PORT || 8080;
 const app = customExpress();
 app.use(cors());
 app.listen(port, () => {
-    console.log("Estabelecendo conexão com o email");
+    
 });
