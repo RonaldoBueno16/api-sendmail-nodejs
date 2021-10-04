@@ -25,11 +25,11 @@ class mail {
               });
 
               if(info.accepted.length) {
-                res.status(200).json({"status": "sucess", "msg": "Email enviado com sucesso!", "emails": info.accepted})
+                res.status(200).json({"status": "sucess", "response": info.response, "emails": info.accepted})
               }
           }
           else {
-              res.status(400).json({"status": "failed", "msg": "JSON inválido", "json_example:": {
+              res.status(400).json({"status": "failed", "response": "JSON inválido", "json_example:": {
                   from: "Remetente",
                   to: "Destinatario",
                   subject: "Assunto",
