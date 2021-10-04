@@ -36,7 +36,6 @@ class mail {
           }
           else {
               res.status(400).json({"status": "failed", "response": "JSON inválido", "json_example:": {
-                  from: "Remetente",
                   to: "Destinatario",
                   subject: "Assunto",
                   text: "Corpo",
