@@ -1,5 +1,6 @@
 const model = require("../models/models");
 const nodemailer = require("nodemailer");
+require ('dotenv').config();
 
 module.exports = app => {
     app.get('/', (req, res, next) => {
@@ -7,13 +8,12 @@ module.exports = app => {
         res.json({status: "OK"})
     });
 
-    app.post('/send', (req, res, next) => {
+    app.post('/send', async (req, res, next) => {
         res.header("Access-Control-Allow-Origin", "*");
 
-        const transporter = nodemailer.createTransport({
-            service: "Gmail",
-            auth: { user: "email", pass: "pass" }
-        })
+        let testAccount = await nodemailer.createTestAccount();
+
+        const transporter = nodemailer.createTransport(JSON.parse(process.env.configTransporter))
 
         transporter.verify((error, sucess) => {
             if(error) {

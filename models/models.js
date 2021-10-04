@@ -13,7 +13,7 @@ class mail {
               text: {"type": "string"},
               html: {"type": "string"},
             },
-            required: ['to', 'subject', 'text']
+            required: ['to', 'subject']
           };
            
           if(v.validate(data, schema).valid) {
