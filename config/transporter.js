@@ -35,10 +35,6 @@ module.exports = async () => {
     }
     catch (error) {
         console.log("|| Falha de autenticação com a API do google");
-        console.log("|| Falha de autenticação com a API do google");
-        console.log("|| Falha de autenticação com a API do google");
-        console.log("|| Falha de autenticação com a API do google");
-        console.log("|| Falha de autenticação com a API do google");
         console.error(error);
     }
     return null;
