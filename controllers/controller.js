@@ -12,7 +12,7 @@ module.exports = app => {
 
     app.post('/send', async (req, res, next) => {
         res.header("Access-Control-Allow-Origin", "*");
-
+        
         model.sendMail(req.body, transporter, res);
     })
 }
