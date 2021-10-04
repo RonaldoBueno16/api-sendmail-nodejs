@@ -3,7 +3,7 @@ const nodemailer = require("nodemailer");
 require ('dotenv').config();
 
 module.exports = () => {
-    console.log("Conectando ao email: ");
+    console.log("Estabelecendo conexão com o email");
     const transporter = nodemailer.createTransport(JSON.parse(process.env.configTransporter))
     transporter.verify((error, sucess) => {
         if(error) {
