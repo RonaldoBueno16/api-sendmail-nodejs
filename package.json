@@ -1,0 +1,22 @@
+{
+  "name": "api_envio_de_email",
+  "version": "1.0.0",
+  "description": "API de envio de email",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "Ronaldo Bueno",
+  "license": "ISC",
+  "dependencies": {
+    "consign": "^0.1.6",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "jsonschema": "^1.4.0",
+    "nodemailer": "^6.6.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.13"
+  }
+}
