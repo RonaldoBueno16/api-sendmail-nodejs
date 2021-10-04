@@ -28,7 +28,7 @@ Ela espera receber um objeto JSON com a estrutura:
 ```
 {
     "to": "DESTINATARIO", 
-    "subject": "Testando nova autenticação",
+    "subject": "Assunto",
     "text": "Texto",
     "html": "<b>Texto</b>"
 }
