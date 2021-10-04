@@ -8,6 +8,7 @@ module.exports = () => {
     transporter.verify((error, sucess) => {
         if(error) {
             console.log("Falha ao conectar com o email: "+JSON.parse(process.env.configTransporter).auth.user);
+            console.log(error);
         }
         else {
             console.log("Conectado ao email: "+JSON.parse(process.env.configTransporter).auth.user);
