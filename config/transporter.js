@@ -27,9 +27,6 @@ module.exports = async () => {
                 console.log("Falha ao conectar com o email: "+process.env.EMAIL);
                 console.log(error);
             }
-            else {
-                console.log("Conectado ao email: "+process.env.EMAIL);
-            }
         })
         return transport;
     }
