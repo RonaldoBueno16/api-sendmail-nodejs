@@ -11,9 +11,8 @@ module.exports = app => {
     app.post('/send', async (req, res, next) => {
         res.header("Access-Control-Allow-Origin", "*");
         
-        console.log(req);
-        const ipCliente = req.connection.remoteAddress || req.socket.remoteAddress || req.connection.socket.remoteAddress;
-        console.log(ipCliente);
+        var ip = (req.headers['x-forwarded-for'] || req.socket.remoteAddress).replace('::ffff:', '');
+        console.log(ip);
         
         const transporterEx = require("../config/transporter");
         const transporter = await transporterEx();
