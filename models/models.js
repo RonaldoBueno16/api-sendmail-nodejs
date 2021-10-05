@@ -7,11 +7,8 @@ class mail {
 
         try {
             const teste = Object.getOwnPropertyNames(data);
-            console.log(teste);
             if(teste.length == 1) { //Converter em JSON (SAMP)
                 data = JSON.parse(teste[0]);
-                console.log("oiii");
-                console.log(data);
             }
     
             const schema = {
