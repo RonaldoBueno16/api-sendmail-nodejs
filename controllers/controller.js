@@ -20,10 +20,7 @@ module.exports = app => {
             }
             else {
                 if(rows.length) {
-                    if(req.body.to != undefined) {
-                        console.log(Object.getOwnPropertyDescriptors(rows[0]).server_name.value);
-                        req.body.to = `${Object.getOwnPropertyDescriptors(rows[0]).server_name.value} <${req.body.to}>`;
-                    }
+                    const nomeRemetente = Object.getOwnPropertyDescriptors(rows[0]).server_name.value;
 
                     if(Object.getOwnPropertyDescriptors(rows[0]).token_auth.value == null) {
                         res.status(400).json({status: 'failed', response: 'Nao foi encontrado nenhum email autenticado no seu usuario.'});
@@ -49,7 +46,7 @@ module.exports = app => {
                                     res.status(500).json({status: 'failed', response: 'Falha de autenticação com a API do Google.'})
                                 }
                                 else {
-                                    model.sendMaail(req.body, transporter, res);
+                                    model.sendMaail(nomeRemetente, EMAIL, req.body, transporter, res);
                                 }
                                 
                             }

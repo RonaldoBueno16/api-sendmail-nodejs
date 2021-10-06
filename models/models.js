@@ -3,7 +3,7 @@ const { Validator } = require('jsonschema');
 const v = new Validator();
 
 class mail {
-    async sendMaail(data, transporter, res) {
+    async sendMaail(nomeRemetente, addresEmail, data, transporter, res) {
 
         try {
             const teste = Object.getOwnPropertyNames(data);
@@ -26,7 +26,7 @@ class mail {
             if(v.validate(data, schema).valid) {
                 
                 const mailOptions = {
-                from: `${process.env.EMAIL_NAME} <${process.env.EMAIL}>`,
+                from: `${nomeRemetente} <${addresEmail}>`,
                 to: data.to,
                 subject: data.subject,
                 text: data.text,
