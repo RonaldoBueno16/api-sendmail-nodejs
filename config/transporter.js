@@ -1,12 +1,13 @@
 const nodemailer = require("nodemailer");
 const {google} = require("googleapis");
+const conexao = require("../infraestrutura/connect");
 
 require ('dotenv').config();
 
-module.exports = async () => {
+module.exports = async (EMAIL,CLIENT_ID,CLIENT_SECRET,REDIRECT_URI,REFRESH_TOKEN) => {
     try {
-        const oAuth2Client = new google.auth.OAuth2(process.env.CLIENT_ID, process.env.CLIENT_SECRET, process.env.REDIRECT_URI);
-        oAuth2Client.setCredentials({refresh_token: process.env.REFRESH_TOKEN})
+        const oAuth2Client = new google.auth.OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI);
+        oAuth2Client.setCredentials({refresh_token: REFRESH_TOKEN})
 
         const acessToken = await oAuth2Client.getAccessToken();
         
@@ -14,17 +15,17 @@ module.exports = async () => {
             service: 'gmail',
             auth: {
                 type: 'OAuth2',
-                user: process.env.EMAIL,
-                clientId: process.env.CLIENT_ID,
-                clientSecret: process.env.CLIENT_SECRET,
-                refreshToken: process.env.REFRESH_TOKEN,
+                user: EMAIL,
+                clientId: CLIENT_ID,
+                clientSecret: CLIENT_SECRET,
+                refreshToken: REFRESH_TOKEN,
                 acessToken: acessToken
             }
         })
 
         transport.verify((error, sucess) => {
             if(error) {
-                console.log("Falha ao conectar com o email: "+process.env.EMAIL);
+                console.log("Falha ao conectar com o email: "+EMAIL);
                 console.log(error);
             }
         })
