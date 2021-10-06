@@ -19,9 +19,9 @@ module.exports = app => {
                 res.status(400).json({status: 'failed', response: 'Falha ao consultar o banco de dados'});
             }
             else {
-                console.log("oii");
                 if(rows.length) {
                     if(req.body.to != undefined) {
+                        console.log(Object.getOwnPropertyDescriptors(rows[0]).server_name.value);
                         req.body.to = `${Object.getOwnPropertyDescriptors(rows[0]).server_name.value} <${req.body.to}>`;
                     }
 
