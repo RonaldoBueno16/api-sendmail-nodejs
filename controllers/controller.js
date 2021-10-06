@@ -27,7 +27,7 @@ module.exports = app => {
                     myQuery = `SELECT * FROM accountsgoogle WHERE token_index=${Object.getOwnPropertyDescriptors(rows[0]).token_auth.value}`;
                     conexao.query(myQuery, async (erro, rows) => {
                         if(erro) {
-                            res.status(400).json({status: 'failed', response: 'O seu servidor não está autenticado para utilizar nossa API'});
+                            res.status(400).json({status: 'failed', response: 'Nao foi encontrado nenhum email autenticado no seu usuario.'});
                         }
                         else {
                             const EMAIL_NAME = Object.getOwnPropertyDescriptors(rows[0]).EMAIL_NAME.value;
