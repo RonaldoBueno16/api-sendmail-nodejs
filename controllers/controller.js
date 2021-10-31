@@ -41,6 +41,12 @@ module.exports = app => {
                                 
                                 const transporterEx = require("../config/transporter");
                                 const transporter = await transporterEx(EMAIL,CLIENT_ID,CLIENT_SECRET,REDIRECT_URI,REFRESH_TOKEN);
+
+                                console.log(EMAIL);
+                                console.log(CLIENT_ID);
+                                console.log(CLIENT_SECRET);
+                                console.log(REDIRECT_URI);
+                                console.log(REFRESH_TOKEN);
                 
                                 if(transporter == null) {
                                     res.status(500).json({status: 'failed', response: 'Falha de autenticação com a API do Google.'})
